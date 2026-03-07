@@ -24,7 +24,7 @@ export const Auth: React.FC<{ onLogin: () => void }> = ({ onLogin }) => {
   };
 
   return (
-    <div className="min-h-[100dvh] flex items-start justify-center bg-shark-bg p-4 overflow-y-auto relative pt-12 sm:pt-24">
+    <div className="min-h-[100dvh] flex flex-col items-center justify-center bg-shark-bg p-4 overflow-y-auto relative pt-[env(safe-area-inset-top)] pb-[env(safe-area-inset-bottom)] overscroll-none">
       {/* Decorative elements */}
       <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-brand-primary/10 rounded-full blur-[120px]"></div>
       <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-brand-secondary/5 rounded-full blur-[120px]"></div>
@@ -37,14 +37,14 @@ export const Auth: React.FC<{ onLogin: () => void }> = ({ onLogin }) => {
         <div className="text-center space-y-2">
           <motion.div 
             animate={{ 
-              scale: [1, 1.02, 1],
+              scale: [1, 1.15, 1],
               filter: [
-                "drop-shadow(0 0 10px rgba(59,130,246,0.2))",
-                "drop-shadow(0 0 20px rgba(59,130,246,0.4))",
-                "drop-shadow(0 0 10px rgba(59,130,246,0.2))"
+                "drop-shadow(0 0 15px rgba(59,130,246,0.4))",
+                "drop-shadow(0 0 35px rgba(59,130,246,0.7))",
+                "drop-shadow(0 0 15px rgba(59,130,246,0.4))"
               ]
             }}
-            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+            transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
             className="w-24 h-24 sm:w-32 sm:h-32 mx-auto mb-4 sm:mb-6 relative"
           >
             <div className="absolute inset-0 bg-brand-primary/20 rounded-full blur-2xl"></div>

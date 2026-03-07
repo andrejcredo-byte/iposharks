@@ -53,7 +53,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose, onLogout }) =
       </AnimatePresence>
 
       <aside className={cn(
-        "w-64 h-[100dvh] sidebar-gradient text-white flex flex-col fixed left-0 top-0 z-50 border-r border-white/5 transition-transform duration-300 lg:translate-x-0",
+        "w-64 h-[100dvh] sidebar-gradient text-white flex flex-col fixed left-0 top-0 z-50 border-r border-white/5 transition-transform duration-300 lg:translate-x-0 pt-[env(safe-area-inset-top)] pb-[env(safe-area-inset-bottom)]",
         isOpen ? "translate-x-0" : "-translate-x-full"
       )}>
         <div className="p-6 lg:p-8 mb-4 flex justify-between items-center">

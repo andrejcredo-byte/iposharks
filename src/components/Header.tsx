@@ -15,7 +15,7 @@ export const Header: React.FC<{ onMenuOpen: () => void }> = ({ onMenuOpen }) => 
   ];
 
   return (
-    <header className="h-16 lg:h-20 bg-shark-bg/80 backdrop-blur-md border-b border-white/5 flex items-center justify-between px-4 lg:px-8 sticky top-0 z-40">
+    <header className="h-[calc(4.5rem+env(safe-area-inset-top))] lg:h-20 bg-shark-bg/80 backdrop-blur-md border-b border-white/5 flex items-center justify-between px-4 lg:px-8 sticky top-0 z-40 pt-[env(safe-area-inset-top)]">
       <div className="flex items-center gap-3 lg:gap-8">
         <div className="flex items-center gap-2 lg:gap-4">
           <button 
