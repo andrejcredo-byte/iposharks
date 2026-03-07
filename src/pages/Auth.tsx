@@ -13,10 +13,13 @@ export const Auth: React.FC<{ onLogin: () => void }> = ({ onLogin }) => {
     e.preventDefault();
     setError('');
     
-    if (email === 'user' && password === 'user') {
+    const normalizedEmail = email.trim().toLowerCase();
+    const normalizedPassword = password.trim();
+
+    if (normalizedEmail === 'user' && normalizedPassword === 'user') {
       onLogin();
     } else {
-      setError('Неверный логин или пароль. Используйте user / user');
+      setError('Неверный логин или пароль');
     }
   };
 
