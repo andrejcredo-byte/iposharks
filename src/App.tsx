@@ -4,6 +4,7 @@ import { Sidebar } from './components/Sidebar';
 import { Header } from './components/Header';
 import { Marketplace } from './pages/Marketplace';
 import { Portfolio } from './pages/Portfolio';
+import { Profile } from './pages/Profile';
 import { Auth } from './pages/Auth';
 import { motion, AnimatePresence } from 'motion/react';
 
@@ -81,6 +82,7 @@ function AppContent({
                 <Route path="/" element={<Marketplace />} />
                 <Route path="/marketplace" element={<Marketplace />} />
                 <Route path="/portfolio" element={<Portfolio />} />
+                <Route path="/profile" element={<Profile />} />
                 <Route path="/news" element={<Placeholder title="Новости" />} />
                 <Route path="/wallet" element={<Placeholder title="Инвест Счёт" />} />
                 <Route path="/partners" element={<Placeholder title="Партнеры" />} />

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { MOCK_COMPANIES } from '../mockData';
-import { TrendingUp, DollarSign, ShieldCheck, CheckCircle2, ExternalLink } from 'lucide-react';
+import { TrendingUp, DollarSign, ShieldCheck, CheckCircle2, ExternalLink, Search } from 'lucide-react';
 import { motion } from 'motion/react';
 import { Modal } from '../components/Modal';
 import { CompanyLogo } from '../components/CompanyLogo';
@@ -10,6 +10,17 @@ export const Marketplace: React.FC = () => {
   const [selectedCompany, setSelectedCompany] = useState<Company | null>(null);
   const [investAmount, setInvestAmount] = useState('');
   const [isSuccess, setIsSuccess] = useState(false);
+  const [activeCategory, setActiveCategory] = useState('Все');
+  const [searchQuery, setSearchQuery] = useState('');
+
+  const categories = ['Все', 'FinTech', 'AI Infrastructure', 'AI Hardware', 'Blockchain', 'Social Media', 'NeuroTech', 'SpaceTech'];
+
+  const filteredCompanies = MOCK_COMPANIES.filter(c => {
+    const matchesCategory = activeCategory === 'Все' || c.sector === activeCategory;
+    const matchesSearch = c.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
+                         c.description.toLowerCase().includes(searchQuery.toLowerCase());
+    return matchesCategory && matchesSearch;
+  });
 
   const handleInvest = (e: React.FormEvent) => {
     e.preventDefault();
@@ -23,18 +34,39 @@ export const Marketplace: React.FC = () => {
 
   return (
     <div className="p-4 lg:p-8 space-y-6 lg:space-y-8 bg-shark-bg min-h-full max-w-full overflow-x-hidden">
-      {/* Categories */}
-      <div className="flex gap-2 overflow-x-auto pb-4 no-scrollbar -mx-4 px-4 lg:mx-0 lg:px-0">
-        {['Фондовый рынок США', 'IPO США', 'Pre-IPO США', 'IT', 'AI-технологии', 'Крипто', 'Стартапы'].map((cat) => (
-          <button key={cat} className="whitespace-nowrap px-4 py-2.5 bg-white/5 hover:bg-white/10 rounded-xl text-[10px] lg:text-[11px] font-bold text-gray-400 hover:text-white transition-colors border border-white/5 shrink-0">
+      {/* Search & Categories */}
+      <div className="space-y-4">
+        <div className="relative md:hidden">
+          <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500" size={18} />
+          <input 
+            type="text" 
+            placeholder="Поиск компаний..." 
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            className="w-full bg-white/5 border border-white/10 rounded-2xl py-3.5 pl-12 pr-4 outline-none focus:border-brand-primary transition-all text-sm text-white"
+          />
+        </div>
+
+        <div className="flex gap-2 overflow-x-auto pb-4 no-scrollbar -mx-4 px-4 lg:mx-0 lg:px-0">
+        {categories.map((cat) => (
+          <button 
+            key={cat} 
+            onClick={() => setActiveCategory(cat)}
+            className={`whitespace-nowrap px-4 py-2.5 rounded-xl text-[10px] lg:text-[11px] font-bold transition-all border shrink-0 ${
+              activeCategory === cat 
+                ? "bg-brand-primary text-white border-brand-primary shadow-lg shadow-brand-primary/20" 
+                : "bg-white/5 text-gray-400 hover:text-white hover:bg-white/10 border-white/5"
+            }`}
+          >
             {cat}
           </button>
         ))}
       </div>
+    </div>
 
       {/* Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 lg:gap-6">
-        {MOCK_COMPANIES.map((company, index) => (
+        {filteredCompanies.map((company, index) => (
           <motion.div
             key={company.id}
             initial={{ opacity: 0, y: 20 }}

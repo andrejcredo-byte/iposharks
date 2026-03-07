@@ -7,6 +7,7 @@ import {
   Newspaper, 
   Wallet, 
   Users,
+  User,
   LogOut,
   X
 } from 'lucide-react';
@@ -26,6 +27,7 @@ const navItems = [
   { icon: Newspaper, label: 'НОВОСТИ', path: '/news' },
   { icon: Wallet, label: 'ИНВЕСТ СЧЁТ', path: '/wallet' },
   { icon: Users, label: 'ПАРТНЁРСКИЕ БОНУСЫ', path: '/partners' },
+  { icon: User, label: 'ПРОФИЛЬ', path: '/profile' },
 ];
 
 interface SidebarProps {
