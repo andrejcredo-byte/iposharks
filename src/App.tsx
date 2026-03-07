@@ -5,6 +5,7 @@ import { Header } from './components/Header';
 import { Marketplace } from './pages/Marketplace';
 import { Portfolio } from './pages/Portfolio';
 import { Profile } from './pages/Profile';
+import { Dashboard } from './pages/Dashboard';
 import { Auth } from './pages/Auth';
 import { motion, AnimatePresence } from 'motion/react';
 
@@ -79,7 +80,7 @@ function AppContent({
           <AnimatePresence mode="wait">
             <PageTransition key={location.pathname}>
               <Routes location={location}>
-                <Route path="/" element={<Marketplace />} />
+                <Route path="/" element={<Dashboard />} />
                 <Route path="/marketplace" element={<Marketplace />} />
                 <Route path="/portfolio" element={<Portfolio />} />
                 <Route path="/profile" element={<Profile />} />
