@@ -25,12 +25,12 @@ export const Modal: React.FC<ModalProps> = ({ isOpen, onClose, title, children }
             initial={{ opacity: 0, scale: 0.9, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 20 }}
-            className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-lg bg-shark-card border border-white/10 rounded-[40px] p-8 z-[70] shadow-2xl"
+            className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100%-2rem)] max-w-lg bg-shark-card border border-white/10 rounded-[32px] sm:rounded-[40px] p-6 sm:p-8 z-[70] shadow-2xl"
           >
-            <div className="flex justify-between items-center mb-6">
-              <h3 className="text-xl font-black text-white italic uppercase tracking-wider">{title}</h3>
+            <div className="flex justify-between items-center mb-4 sm:mb-6">
+              <h3 className="text-lg sm:text-xl font-black text-white italic uppercase tracking-wider">{title}</h3>
               <button onClick={onClose} className="p-2 hover:bg-white/5 rounded-xl text-gray-400 transition-colors">
-                <X size={20} />
+                <X size={18} className="sm:w-5 sm:h-5" />
               </button>
             </div>
             {children}

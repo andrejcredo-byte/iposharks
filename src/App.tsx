@@ -8,14 +8,13 @@ import { Auth } from './pages/Auth';
 import { motion, AnimatePresence } from 'motion/react';
 
 // Animated Page Wrapper
-const PageTransition = ({ children }: { children: React.ReactNode }) => {
-  const location = useLocation();
+const PageTransition = ({ children, key }: { children: React.ReactNode, key?: string }) => {
   return (
     <motion.div
-      key={location.pathname}
-      initial={{ opacity: 0, x: 10 }}
-      animate={{ opacity: 1, x: 0 }}
-      exit={{ opacity: 0, x: -10 }}
+      key={key}
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -10 }}
       transition={{ duration: 0.3, ease: "easeOut" }}
       className="h-full"
     >
@@ -44,19 +43,41 @@ export default function App() {
 
   return (
     <Router>
-      <div className="flex min-h-screen bg-shark-bg font-sans text-white overflow-x-hidden">
-        <Sidebar 
-          isOpen={isSidebarOpen} 
-          onClose={() => setIsSidebarOpen(false)} 
-          onLogout={() => setIsAuthenticated(false)}
-        />
+      <AppContent 
+        isSidebarOpen={isSidebarOpen} 
+        setIsSidebarOpen={setIsSidebarOpen} 
+        setIsAuthenticated={setIsAuthenticated} 
+      />
+    </Router>
+  );
+}
+
+function AppContent({ 
+  isSidebarOpen, 
+  setIsSidebarOpen, 
+  setIsAuthenticated 
+}: { 
+  isSidebarOpen: boolean; 
+  setIsSidebarOpen: (v: boolean) => void; 
+  setIsAuthenticated: (v: boolean) => void; 
+}) {
+  const location = useLocation();
+
+  return (
+    <div className="flex min-h-screen bg-shark-bg font-sans text-white overflow-x-hidden">
+      <Sidebar 
+        isOpen={isSidebarOpen} 
+        onClose={() => setIsSidebarOpen(false)} 
+        onLogout={() => setIsAuthenticated(false)}
+      />
+      
+      <main className="flex-1 lg:ml-64 min-h-screen flex flex-col w-full">
+        <Header onMenuOpen={() => setIsSidebarOpen(true)} />
         
-        <main className="flex-1 lg:ml-64 min-h-screen flex flex-col w-full">
-          <Header onMenuOpen={() => setIsSidebarOpen(true)} />
-          
-          <div className="flex-1 overflow-y-auto overflow-x-hidden">
-            <PageTransition>
-              <Routes>
+        <div className="flex-1 overflow-y-auto overflow-x-hidden">
+          <AnimatePresence mode="wait">
+            <PageTransition key={location.pathname}>
+              <Routes location={location}>
                 <Route path="/" element={<Navigate to="/marketplace" />} />
                 <Route path="/marketplace" element={<Marketplace />} />
                 <Route path="/portfolio" element={<Portfolio />} />
@@ -65,9 +86,9 @@ export default function App() {
                 <Route path="/partners" element={<Placeholder title="Партнеры" />} />
               </Routes>
             </PageTransition>
-          </div>
-        </main>
-      </div>
-    </Router>
+          </AnimatePresence>
+        </div>
+      </main>
+    </div>
   );
 }

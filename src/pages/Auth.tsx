@@ -7,14 +7,16 @@ export const Auth: React.FC<{ onLogin: () => void }> = ({ onLogin }) => {
   const [isLogin, setIsLogin] = useState(true);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Simple bypass for user:user or any input for preview
+    setError('');
+    
     if (email === 'user' && password === 'user') {
       onLogin();
-    } else if (email && password) {
-      onLogin(); // Allow any for now to let user see the app
+    } else {
+      setError('Неверный логин или пароль. Используйте user / user');
     }
   };
 
@@ -27,7 +29,7 @@ export const Auth: React.FC<{ onLogin: () => void }> = ({ onLogin }) => {
       <motion.div 
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="max-w-md w-full bg-shark-card rounded-[40px] p-10 shadow-2xl border border-white/5 space-y-8 relative z-10"
+        className="max-w-md w-full bg-shark-card rounded-[32px] sm:rounded-[40px] p-6 sm:p-10 shadow-2xl border border-white/5 space-y-6 sm:space-y-8 relative z-10"
       >
         <div className="text-center space-y-2">
           <motion.div 
@@ -40,25 +42,35 @@ export const Auth: React.FC<{ onLogin: () => void }> = ({ onLogin }) => {
               ]
             }}
             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-            className="w-32 h-32 mx-auto mb-6 relative"
+            className="w-24 h-24 sm:w-32 sm:h-32 mx-auto mb-4 sm:mb-6 relative"
           >
             <div className="absolute inset-0 bg-brand-primary/20 rounded-full blur-2xl"></div>
-            <div className="relative w-full h-full bg-shark-card rounded-[32px] border border-white/10 p-1 overflow-hidden shadow-2xl">
+            <div className="relative w-full h-full bg-shark-card rounded-2xl sm:rounded-[32px] border border-white/10 p-1 overflow-hidden shadow-2xl">
               <img 
                 src={SHARK_LOGO} 
                 alt="IPO Sharks Logo"
-                className="w-full h-full object-cover rounded-[28px]"
+                className="w-full h-full object-cover rounded-xl sm:rounded-[28px]"
                 referrerPolicy="no-referrer"
               />
             </div>
           </motion.div>
-          <h1 className="text-3xl font-black text-white tracking-tight italic uppercase">
+          <h1 className="text-2xl sm:text-3xl font-black text-white tracking-tight italic uppercase">
             IPO <span className="text-brand-primary">SHARKS</span>
           </h1>
-          <p className="text-sm text-gray-500">
+          <p className="text-xs sm:text-sm text-gray-500">
             {isLogin ? 'Войдите в свой кабинет инвестора' : 'Начните охоту за прибылью'}
           </p>
         </div>
+
+        {error && (
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            className="bg-red-500/10 border border-red-500/20 rounded-2xl p-4 text-center"
+          >
+            <p className="text-xs font-bold text-red-500">{error}</p>
+          </motion.div>
+        )}
 
         <form className="space-y-4" onSubmit={handleSubmit}>
           <div className="space-y-1">

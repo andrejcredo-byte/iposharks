@@ -3,6 +3,7 @@ import { MOCK_COMPANIES } from '../mockData';
 import { TrendingUp, DollarSign, ShieldCheck, CheckCircle2, ExternalLink } from 'lucide-react';
 import { motion } from 'motion/react';
 import { Modal } from '../components/Modal';
+import { CompanyLogo } from '../components/CompanyLogo';
 import { Company } from '../types';
 
 export const Marketplace: React.FC = () => {
@@ -21,34 +22,18 @@ export const Marketplace: React.FC = () => {
   };
 
   return (
-    <div className="p-4 lg:p-8 space-y-8 bg-shark-bg min-h-full">
-      {/* Banner */}
-      <div className="bg-shark-card p-6 rounded-[32px] border border-white/5 flex flex-col md:flex-row items-center justify-between shadow-2xl gap-6">
-        <div className="flex items-center gap-6">
-          <div className="w-12 h-12 bg-brand-primary/10 rounded-2xl flex items-center justify-center text-brand-primary border border-brand-primary/20 shrink-0">
-            <ShieldCheck size={24} />
-          </div>
-          <div>
-            <h3 className="text-sm font-bold text-white uppercase tracking-wider">Получите $5 за верификацию</h3>
-            <p className="text-xs text-gray-400">Пройдите верификацию, чтобы начать инвестировать и получите бонус $5</p>
-          </div>
-        </div>
-        <button className="w-full md:w-auto bg-brand-primary hover:bg-blue-600 text-white px-6 py-3 rounded-2xl text-xs font-bold transition-all shadow-lg shadow-brand-primary/20">
-          Пройти верификацию
-        </button>
-      </div>
-
+    <div className="p-4 lg:p-8 space-y-6 lg:space-y-8 bg-shark-bg min-h-full max-w-full overflow-x-hidden">
       {/* Categories */}
-      <div className="flex gap-2 overflow-x-auto pb-2 no-scrollbar">
+      <div className="flex gap-2 overflow-x-auto pb-4 no-scrollbar -mx-4 px-4 lg:mx-0 lg:px-0">
         {['Фондовый рынок США', 'IPO США', 'Pre-IPO США', 'IT', 'AI-технологии', 'Крипто', 'Стартапы'].map((cat) => (
-          <button key={cat} className="whitespace-nowrap px-4 py-2 bg-white/5 hover:bg-white/10 rounded-xl text-[11px] font-bold text-gray-400 hover:text-white transition-colors border border-white/5">
+          <button key={cat} className="whitespace-nowrap px-4 py-2.5 bg-white/5 hover:bg-white/10 rounded-xl text-[10px] lg:text-[11px] font-bold text-gray-400 hover:text-white transition-colors border border-white/5 shrink-0">
             {cat}
           </button>
         ))}
       </div>
 
       {/* Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 lg:gap-6">
         {MOCK_COMPANIES.map((company, index) => (
           <motion.div
             key={company.id}
@@ -59,11 +44,10 @@ export const Marketplace: React.FC = () => {
           >
             <div className="p-6 space-y-4">
               <div className="flex justify-between items-start">
-                <img 
+                <CompanyLogo 
                   src={company.logo_url} 
-                  alt={company.name} 
-                  className="w-14 h-14 rounded-2xl object-cover border border-white/10"
-                  referrerPolicy="no-referrer"
+                  name={company.name} 
+                  className="w-14 h-14 rounded-2xl border border-white/10"
                 />
                 <div className="flex flex-col items-end gap-2">
                   <span className={company.status === 'Available' ? "text-brand-primary bg-brand-primary/10 px-3 py-1 rounded-full text-[10px] font-bold border border-brand-primary/20" : "text-gray-500 bg-white/5 px-3 py-1 rounded-full text-[10px] font-bold"}>
@@ -115,9 +99,9 @@ export const Marketplace: React.FC = () => {
               <button 
                 onClick={() => setSelectedCompany(company)}
                 disabled={company.status !== 'Available'}
-                className="w-full bg-white/5 group-hover:bg-brand-primary disabled:opacity-50 disabled:group-hover:bg-white/5 text-white py-4 rounded-2xl text-xs font-bold transition-all flex items-center justify-center gap-2 border border-white/10 group-hover:border-transparent"
+                className="w-full bg-white/5 group-hover:bg-brand-primary disabled:opacity-50 disabled:group-hover:bg-white/5 text-white py-3.5 lg:py-4 rounded-2xl text-[11px] lg:text-xs font-bold transition-all flex items-center justify-center gap-2 border border-white/10 group-hover:border-transparent"
               >
-                <DollarSign size={16} />
+                <DollarSign size={14} className="lg:w-4 lg:h-4" />
                 Инвестировать от ${company.min_investment.toLocaleString()}
               </button>
             </div>

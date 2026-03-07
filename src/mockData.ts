@@ -4,7 +4,7 @@ export const MOCK_COMPANIES: Company[] = [
   {
     id: '1',
     name: 'Circle',
-    logo_url: 'https://logo.clearbit.com/circle.com',
+    logo_url: 'https://www.google.com/s2/favicons?domain=circle.com&sz=128',
     website_url: 'https://www.circle.com',
     description: 'Global financial technology firm that enables businesses to harness the power of digital currencies.',
     stage: 'Pre-IPO',
@@ -17,7 +17,7 @@ export const MOCK_COMPANIES: Company[] = [
   {
     id: '2',
     name: 'CoreWeave',
-    logo_url: 'https://logo.clearbit.com/coreweave.com',
+    logo_url: 'https://www.google.com/s2/favicons?domain=coreweave.com&sz=128',
     website_url: 'https://www.coreweave.com',
     description: 'Specialized cloud provider delivering a massive scale of GPU compute resources.',
     stage: 'Pre-IPO',
@@ -30,7 +30,7 @@ export const MOCK_COMPANIES: Company[] = [
   {
     id: '3',
     name: 'Cerebras',
-    logo_url: 'https://logo.clearbit.com/cerebras.net',
+    logo_url: 'https://www.google.com/s2/favicons?domain=cerebras.net&sz=128',
     website_url: 'https://www.cerebras.net',
     description: 'Computer systems for complex AI deep learning.',
     stage: 'Pre-IPO',
@@ -43,7 +43,7 @@ export const MOCK_COMPANIES: Company[] = [
   {
     id: '4',
     name: 'Ripple',
-    logo_url: 'https://logo.clearbit.com/ripple.com',
+    logo_url: 'https://www.google.com/s2/favicons?domain=ripple.com&sz=128',
     website_url: 'https://www.ripple.com',
     description: 'Real-time gross settlement system, currency exchange and remittance network.',
     stage: 'Pre-IPO',
@@ -56,7 +56,7 @@ export const MOCK_COMPANIES: Company[] = [
   {
     id: '5',
     name: 'Discord',
-    logo_url: 'https://logo.clearbit.com/discord.com',
+    logo_url: 'https://www.google.com/s2/favicons?domain=discord.com&sz=128',
     website_url: 'https://www.discord.com',
     description: 'Instant messaging and social platform.',
     stage: 'Pre-IPO',
@@ -69,7 +69,7 @@ export const MOCK_COMPANIES: Company[] = [
   {
     id: '6',
     name: 'Paradromics',
-    logo_url: 'https://logo.clearbit.com/paradromics.com',
+    logo_url: 'https://www.google.com/s2/favicons?domain=paradromics.com&sz=128',
     website_url: 'https://www.paradromics.com',
     description: 'High-data-rate brain-computer interfaces.',
     stage: 'Pre-IPO',
@@ -82,7 +82,7 @@ export const MOCK_COMPANIES: Company[] = [
   {
     id: '7',
     name: 'SpaceX',
-    logo_url: 'https://logo.clearbit.com/spacex.com',
+    logo_url: 'https://www.google.com/s2/favicons?domain=spacex.com&sz=128',
     website_url: 'https://www.spacex.com',
     description: 'Aerospace manufacturer and space transport services.',
     stage: 'Pre-IPO',

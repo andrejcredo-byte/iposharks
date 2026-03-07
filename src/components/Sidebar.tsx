@@ -54,9 +54,9 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose, onLogout }) =
         "w-64 h-screen sidebar-gradient text-white flex flex-col fixed left-0 top-0 z-50 border-r border-white/5 transition-transform duration-300 lg:translate-x-0",
         isOpen ? "translate-x-0" : "-translate-x-full"
       )}>
-        <div className="p-8 mb-4 flex justify-between items-center">
+        <div className="p-6 lg:p-8 mb-4 flex justify-between items-center">
           <Link to="/" className="flex items-center gap-3 group">
-            <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 overflow-hidden flex items-center justify-center p-1 shadow-xl group-hover:scale-110 group-hover:border-brand-primary/50 transition-all duration-300">
+            <div className="w-12 h-12 lg:w-14 lg:h-14 rounded-2xl bg-white/5 border border-white/10 overflow-hidden flex items-center justify-center p-1 shadow-xl group-hover:scale-110 group-hover:border-brand-primary/50 transition-all duration-300">
               <img 
                 src={SHARK_LOGO} 
                 alt="Shark Logo" 
@@ -64,13 +64,13 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose, onLogout }) =
                 referrerPolicy="no-referrer"
               />
             </div>
-            <h1 className="text-xl font-black italic tracking-tighter flex flex-col leading-none">
+            <h1 className="text-lg lg:text-xl font-black italic tracking-tighter flex flex-col leading-none">
               <span className="text-brand-primary">IPO</span>
               <span className="text-white">SHARKS</span>
             </h1>
           </Link>
           <button onClick={onClose} className="lg:hidden p-2 text-white/50 hover:text-white transition-colors">
-            <X size={24} />
+            <X size={20} />
           </button>
         </div>
         
