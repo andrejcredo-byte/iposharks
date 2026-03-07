@@ -24,7 +24,7 @@ export const Auth: React.FC<{ onLogin: () => void }> = ({ onLogin }) => {
   };
 
   return (
-    <div className="min-h-[100dvh] flex flex-col items-center justify-center bg-shark-bg p-4 overflow-y-auto relative pt-[env(safe-area-inset-top)] pb-[env(safe-area-inset-bottom)] overscroll-none">
+    <div className="fixed inset-0 w-screen h-screen flex flex-col items-center justify-center bg-shark-bg p-4 overflow-hidden relative pt-[env(safe-area-inset-top)] pb-[env(safe-area-inset-bottom)]">
       {/* Decorative elements */}
       <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-brand-primary/10 rounded-full blur-[120px]"></div>
       <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-brand-secondary/5 rounded-full blur-[120px]"></div>
