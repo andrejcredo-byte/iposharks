@@ -1,0 +1,28 @@
+{
+  "name": "IPO Sharks - Инвестиции в будущее",
+  "short_name": "IPO Sharks",
+  "description": "Инвестиционная платформа для доступа к IPO и Pre-IPO сделкам",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#050505",
+  "theme_color": "#3b82f6",
+  "icons": [
+    {
+      "src": "/src/assets/favicon.png",
+      "sizes": "64x64",
+      "type": "image/png"
+    },
+    {
+      "src": "/src/assets/favicon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "/src/assets/favicon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
