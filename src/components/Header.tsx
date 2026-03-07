@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { Bell, Search, User, Menu, X, Info } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
+import { SHARK_LOGO } from '../assets/logo';
 
 export const Header: React.FC<{ onMenuOpen: () => void }> = ({ onMenuOpen }) => {
   const navigate = useNavigate();
@@ -15,13 +16,30 @@ export const Header: React.FC<{ onMenuOpen: () => void }> = ({ onMenuOpen }) => 
 
   return (
     <header className="h-16 lg:h-20 bg-shark-bg/80 backdrop-blur-md border-b border-white/5 flex items-center justify-between px-4 lg:px-8 sticky top-0 z-40">
-      <div className="flex items-center gap-2 lg:gap-4">
-        <button 
-          onClick={onMenuOpen}
-          className="lg:hidden p-2 text-white/70 hover:text-white hover:bg-white/5 rounded-xl transition-all"
-        >
-          <Menu size={20} className="lg:w-6 lg:h-6" />
-        </button>
+      <div className="flex items-center gap-3 lg:gap-8">
+        <div className="flex items-center gap-2 lg:gap-4">
+          <button 
+            onClick={onMenuOpen}
+            className="lg:hidden p-2 text-white/70 hover:text-white hover:bg-white/5 rounded-xl transition-all"
+          >
+            <Menu size={20} className="lg:w-6 lg:h-6" />
+          </button>
+          
+          <Link to="/" className="flex items-center gap-2 group">
+            <div className="w-8 h-8 lg:w-9 lg:h-9 rounded-lg bg-white/5 border border-white/10 overflow-hidden flex items-center justify-center p-0.5 transition-all group-hover:border-brand-primary/50">
+              <img 
+                src={SHARK_LOGO} 
+                alt="Shark Logo" 
+                className="w-full h-full object-cover rounded-md"
+                referrerPolicy="no-referrer"
+              />
+            </div>
+            <h1 className="text-sm lg:text-base font-black italic tracking-tighter flex flex-col leading-none">
+              <span className="text-brand-primary">IPO</span>
+              <span className="text-white">SHARKS</span>
+            </h1>
+          </Link>
+        </div>
         
         <div className="hidden md:flex items-center gap-4 bg-white/5 px-4 py-2 rounded-2xl w-64 lg:w-96 border border-white/5">
           <Search size={18} className="text-gray-500" />
