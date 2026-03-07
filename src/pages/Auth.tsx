@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Lock, ArrowRight, Shield } from 'lucide-react';
+import { Mail, Lock, ArrowRight } from 'lucide-react';
 import { motion } from 'motion/react';
 import { SHARK_LOGO } from '../assets/logo';
 
@@ -24,10 +24,11 @@ export const Auth: React.FC<{ onLogin: () => void }> = ({ onLogin }) => {
   };
 
   return (
-    <div className="min-h-[100dvh] flex flex-col items-center justify-center bg-shark-bg p-4 overflow-y-auto relative pt-[env(safe-area-inset-top)] pb-[env(safe-area-inset-bottom)] overscroll-none">
+    <div className="min-h-[100dvh] max-w-[100vw] flex flex-col items-center justify-center bg-shark-bg p-4 overflow-y-auto overflow-x-hidden relative pt-[env(safe-area-inset-top)] pb-[env(safe-area-inset-bottom)] overscroll-none">
+
       {/* Decorative elements */}
-      <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-brand-primary/10 rounded-full blur-[120px]"></div>
-      <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-brand-secondary/5 rounded-full blur-[120px]"></div>
+      <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-brand-primary/10 rounded-full blur-[120px] pointer-events-none"></div>
+      <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-brand-secondary/5 rounded-full blur-[120px] pointer-events-none"></div>
 
       <motion.div 
         initial={{ opacity: 0, y: 20 }}
@@ -48,6 +49,7 @@ export const Auth: React.FC<{ onLogin: () => void }> = ({ onLogin }) => {
             className="w-24 h-24 sm:w-32 sm:h-32 mx-auto mb-4 sm:mb-6 relative"
           >
             <div className="absolute inset-0 bg-brand-primary/20 rounded-full blur-2xl"></div>
+
             <div className="relative w-full h-full bg-shark-card rounded-2xl sm:rounded-[32px] border border-white/10 p-1 overflow-hidden shadow-2xl">
               <img 
                 src={SHARK_LOGO} 
@@ -57,9 +59,11 @@ export const Auth: React.FC<{ onLogin: () => void }> = ({ onLogin }) => {
               />
             </div>
           </motion.div>
+
           <h1 className="text-2xl sm:text-3xl font-black text-white tracking-tight italic uppercase">
             IPO <span className="text-brand-primary">SHARKS</span>
           </h1>
+
           <p className="text-xs sm:text-sm text-gray-500">
             {isLogin ? 'Войдите в свой кабинет инвестора' : 'Начните охоту за прибылью'}
           </p>
@@ -77,9 +81,13 @@ export const Auth: React.FC<{ onLogin: () => void }> = ({ onLogin }) => {
 
         <form className="space-y-4" onSubmit={handleSubmit}>
           <div className="space-y-1">
-            <label className="text-[10px] font-bold text-gray-500 uppercase tracking-widest ml-4">Логин / Email</label>
+            <label className="text-[10px] font-bold text-gray-500 uppercase tracking-widest ml-4">
+              Логин / Email
+            </label>
+
             <div className="relative">
               <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-600" size={18} />
+
               <input 
                 type="text" 
                 value={email}
@@ -91,9 +99,13 @@ export const Auth: React.FC<{ onLogin: () => void }> = ({ onLogin }) => {
           </div>
 
           <div className="space-y-1">
-            <label className="text-[10px] font-bold text-gray-500 uppercase tracking-widest ml-4">Пароль</label>
+            <label className="text-[10px] font-bold text-gray-500 uppercase tracking-widest ml-4">
+              Пароль
+            </label>
+
             <div className="relative">
               <Lock className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-600" size={18} />
+
               <input 
                 type="password" 
                 value={password}
