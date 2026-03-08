@@ -73,7 +73,7 @@ function AppContent({
         onLogout={() => setIsAuthenticated(false)}
       />
       
-      <main className="flex-1 lg:ml-64 h-full flex flex-col w-full relative overflow-hidden">
+      <main className="flex-1 lg:ml-64 h-full flex flex-col w-full relative">
         <Header onMenuOpen={() => setIsSidebarOpen(true)} />
         
         <div className="flex-1 overflow-y-auto overflow-x-hidden w-full overscroll-y-contain pb-[env(safe-area-inset-bottom)]">
