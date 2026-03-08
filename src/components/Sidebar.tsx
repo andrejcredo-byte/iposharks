@@ -47,7 +47,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose, onLogout }) =
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 lg:hidden"
+            className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 lg:hidden pointer-events-auto"
           />
         )}
       </AnimatePresence>
