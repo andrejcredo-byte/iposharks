@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+:root {
+  color-scheme: dark;
+  background-color: #020617;
+}
 @theme {
   --color-brand-primary: #3b82f6;
   --color-brand-secondary: #ef4444;
@@ -16,11 +20,10 @@ html, body, #root {
   width: 100%;
   margin: 0;
   padding: 0;
-  overflow: hidden;
-  position: fixed;
+  overflow-x: hidden;
+  overscroll-behavior: none;
   touch-action: manipulation;
   -webkit-tap-highlight-color: transparent;
-  overscroll-behavior: none;
   background-color: var(--color-shark-bg);
 }
 
