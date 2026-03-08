@@ -22,7 +22,6 @@ html, body, #root {
   padding: 0;
   overflow-x: hidden;
   overscroll-behavior: none;
-  touch-action: manipulation;
   -webkit-tap-highlight-color: transparent;
   background-color: var(--color-shark-bg);
 }
