@@ -27,7 +27,7 @@ const PageTransition = ({ children, key }: { children: React.ReactNode, key?: st
 
 // Placeholder for other pages
 const Placeholder = ({ title }: { title: string }) => (
-  <div className="p-8 flex items-center justify-center h-[calc(100vh-80px)] w-full">
+  <div className="p-8 flex items-center justify-center h-[calc(100dvh-80px)] w-full">
     <div className="text-center space-y-4">
       <h2 className="text-2xl font-bold text-gray-700 uppercase tracking-widest italic">{title}</h2>
       <p className="text-gray-500">Этот раздел находится в разработке</p>
@@ -66,7 +66,7 @@ function AppContent({
   const location = useLocation();
 
   return (
-    <div className="flex h-[100dvh] bg-shark-bg font-sans text-white overflow-hidden w-full fixed inset-0 select-none overscroll-none">
+    <div className="flex h-screen bg-shark-bg font-sans text-white overflow-hidden w-full fixed inset-0 select-none overscroll-none">
       <Sidebar 
         isOpen={isSidebarOpen} 
         onClose={() => setIsSidebarOpen(false)} 
