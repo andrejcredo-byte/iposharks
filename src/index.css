@@ -25,7 +25,6 @@
 }
 
 html, body, #root {
-  height: 100%;
   width: 100%;
   margin: 0;
   padding: 0;
@@ -82,11 +81,6 @@ html, body {
 }
 /* PWA fullscreen fix */
 #root {
-  min-height: 100vh;
-  min-height: -webkit-fill-available;
-}
-
-body {
-  min-height: 100vh;
+  min-height: 100svh;
   min-height: -webkit-fill-available;
 }
