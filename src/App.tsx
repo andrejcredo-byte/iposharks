@@ -66,7 +66,7 @@ function AppContent({
   const location = useLocation();
 
   return (
-    <div className="flex min-h-screen bg-shark-bg font-sans text-white w-full select-none overscroll-none pt-[env(safe-area-inset-top)] pb-[env(safe-area-inset-bottom)]">
+    <div className="flex min-h-[calc(var(--app-height)*100)] bg-shark-bg font-sans text-white w-full select-none overscroll-none">
       <Sidebar 
         isOpen={isSidebarOpen} 
         onClose={() => setIsSidebarOpen(false)} 
