@@ -1,8 +1,17 @@
 @import "tailwindcss";
 
-:root {
-  color-scheme: dark;
-  background-color: red;
+/* PWA fullscreen fix */
+#root, body {
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+}
+
+#root {
+  /* Защищаем контент от наезда на полоску Home */
+  padding-bottom: env(safe-area-inset-bottom);
+  /* Если слева/справа тоже нужен отступ при повороте экрана: */
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
 }
 @theme {
   --color-brand-primary: #3b82f6;
