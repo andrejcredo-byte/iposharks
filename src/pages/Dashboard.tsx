@@ -60,7 +60,7 @@ export const Dashboard: React.FC = () => {
   const featuredDeals = MOCK_COMPANIES.slice(0, 3);
 
   return (
-    <div className="p-4 lg:p-8 space-y-8 max-w-full overflow-x-hidden min-h-full">
+    <div className="p-4 lg:p-8 space-y-8 max-w-full overflow-x-hidden border border-red-500">
       {/* Welcome Section */}
       <section className="relative py-8 lg:py-12 px-6 lg:px-10 rounded-[2.5rem] bg-gradient-to-br from-brand-primary/20 via-shark-card to-shark-bg border border-white/5 overflow-hidden">
         <div className="absolute top-0 right-0 w-1/2 h-full bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10 pointer-events-none" />
